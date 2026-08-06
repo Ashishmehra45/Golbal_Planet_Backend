@@ -1,5 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Import Routes
 const productRoutes = require('./routes/productRoutes');
@@ -7,8 +11,21 @@ const productRoutes = require('./routes/productRoutes');
 // Initialize App
 const app = express();
 
-// Middleware
-app.use(cors()); // Allow cross-origin requests from React frontend
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://your-frontend.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  })
+); // Allow cross-origin requests from React frontend
 app.use(express.json()); // Allow parsing JSON in req.body
 
 // Mount Routes
