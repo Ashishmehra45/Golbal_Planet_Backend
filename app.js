@@ -17,17 +17,19 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
+
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
       "http://localhost:3000",
-      "https://www.globalplanet.in/",
-      "https://your-frontend.vercel.app",
+      "https://www.globalplanet.in",
+      "https://globalplanet.in"
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    // credentials: true,
   })
-); // Allow cross-origin requests from React frontend
+);// Allow cross-origin requests from React frontend
 app.use(express.json()); // Allow parsing JSON in req.body
 
 // Mount Routes
