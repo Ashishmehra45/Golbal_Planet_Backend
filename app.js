@@ -24,7 +24,9 @@ app.use(
       "http://localhost:5173",
       "http://localhost:3000",
       "https://www.globalplanet.in",
-      "https://globalplanet.in"
+      "https://globalplanet.in",
+       "https://global-plant.vercel.app",
+       "https://www.global-plant.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     // credentials: true,
