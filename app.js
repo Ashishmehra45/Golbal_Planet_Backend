@@ -8,6 +8,7 @@ dotenv.config();
 // Import Routes
 const productRoutes = require('./routes/productRoutes');
 
+
 // Initialize App
 const app = express();
 
