@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Import Routes
-const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./route/productRoutes');
 
 
 // Initialize App
