@@ -69,6 +69,15 @@ const createQuery = async (req, res) => {
   }
 };
 
+const getQueries = async (req, res) => {
+  try {
+    const queries = await productEnquiry.find({});
+    res.status(200).json(queries);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error", error: error.message });
+  }
+};
+
 const submitContactForm = async (req, res) => {
   try {
     const newContact = await contact.create(req.body);
@@ -88,4 +97,4 @@ const submitContactForm = async (req, res) => {
   }
 };
 
-module.exports = { getProducts, createProduct, getProductById, createQuery , submitContactForm};
+module.exports = { getQueries,getProducts, createProduct, getProductById, createQuery , submitContactForm};
