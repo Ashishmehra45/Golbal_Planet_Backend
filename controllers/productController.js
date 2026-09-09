@@ -97,4 +97,25 @@ const submitContactForm = async (req, res) => {
   }
 };
 
-module.exports = { getQueries,getProducts, createProduct, getProductById, createQuery , submitContactForm};
+const getContactSubmissions = async (req, res) => {
+  try {
+    const contacts = await contact.find().sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: contacts.length,
+      message: "Contact submissions fetched successfully",
+      data: contacts
+    });
+  } catch (error) {
+    console.error("Get Contact Submissions Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch contact submissions",
+      error: error.message
+    });
+  }
+};
+
+module.exports = { getQueries,getProducts, createProduct, getProductById, createQuery , submitContactForm, getContactSubmissions};
